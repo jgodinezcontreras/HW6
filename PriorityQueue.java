@@ -1,7 +1,7 @@
 
 /******************************************************************
  *
- *   YOUR NAME / SECTION NUMBER
+ *   Jose Godinez-Contreras / 002
  *
  *   Note, additional comments provided throughout this source code
  *   is for educational purposes
@@ -25,7 +25,7 @@ import java.util.Comparator;
  * comparable operator implemented (if the default comparable operator will not
  * suffice); case in point, if using data type Integer, it has a pre-defined 
  * comparable operator. But, this class  allows for more sophisticated
- * priority comparisons (e.g., see below on aging discussions as we also 
+ * priority comparisons (e.g., see below on aging discussions as we also5 
  * discussed in class).
  *
  * To allow the application (aka, user of this class) to have very basic priority 
@@ -151,8 +151,10 @@ class PriorityQueue<E, P> {
 
     public Node add(E e, P priority) {
 
-        // YOUR CODE GOES HERE
-        return null;
+        Node newNode = new Node(e, priority, tree.size());
+        tree.add(newNode);
+        pullUp(newNode.idx);
+        return newNode;
     }
 
 
@@ -167,8 +169,12 @@ class PriorityQueue<E, P> {
      */
 
     public boolean contains(E e) {
-
-        // ADD YOUR CODE HERE
+        for (int i = 0; i < tree.size(); i++) {
+            Node node = tree.get(i);
+            if (node.value.equals(e)) {
+                return true;
+            }
+        }
         return false;
     }
 
